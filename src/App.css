@@ -1,0 +1,17 @@
+.form-container {
+  background-color: rgb(250, 250, 250);
+  height: 1056px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.card-container {
+  background-color: rgb(2, 48, 49);
+  height: 1056px;
+  left: 690px;
+  position: absolute;
+  top: 0;
+  width: 763px;
+}

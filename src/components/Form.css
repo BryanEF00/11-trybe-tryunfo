@@ -1,0 +1,26 @@
+/* stylelint-disable indentation */
+.title {
+  color: rgb(68, 73, 85);
+  font-family: Epilogue , sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  height: 36px;
+  left: 131px;
+  line-height: 29px;
+  position: absolute;
+  top: 122px;
+  width: 355px;
+}
+
+form {
+  height: 734px;
+  left: 129px;
+  position: absolute;
+  top: 233px;
+  width: 398px;
+}
+
+form label {
+  display: block;
+}
