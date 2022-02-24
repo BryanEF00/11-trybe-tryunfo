@@ -31,7 +31,7 @@ class Form extends Component {
             <br />
             <textarea
               data-testid="description-input"
-              name="description"
+              name="cardDescription"
               id="description"
               value={ cardDescription }
               onChange={ onInputChange }
@@ -43,7 +43,7 @@ class Form extends Component {
             <input
               data-testid="attr1-input"
               type="number"
-              name="attr-1"
+              name="cardAttr1"
               id="attr-1"
               value={ cardAttr1 }
               onChange={ onInputChange }
@@ -55,7 +55,7 @@ class Form extends Component {
             <input
               data-testid="attr2-input"
               type="number"
-              name="attr-2"
+              name="cardAttr2"
               id="attr-2"
               value={ cardAttr2 }
               onChange={ onInputChange }
@@ -67,7 +67,7 @@ class Form extends Component {
             <input
               data-testid="attr3-input"
               type="number"
-              name="attr-3"
+              name="cardAttr3"
               id="attr-3"
               value={ cardAttr3 }
               onChange={ onInputChange }
@@ -79,7 +79,7 @@ class Form extends Component {
             <input
               data-testid="image-input"
               type="text"
-              name="image"
+              name="cardImage"
               id="image"
               value={ cardImage }
               onChange={ onInputChange }
@@ -90,7 +90,7 @@ class Form extends Component {
             Raridade
             <select
               data-testid="rare-input"
-              name="rarity"
+              name="cardRare"
               id="rarity"
               value={ cardRare }
               onChange={ onInputChange }
@@ -105,6 +105,7 @@ class Form extends Component {
             <input
               data-testid="trunfo-input"
               type="checkbox"
+              name="cardTrunfo"
               checked={ cardTrunfo }
               onChange={ onInputChange }
             />
