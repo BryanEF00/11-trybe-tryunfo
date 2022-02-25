@@ -189,3 +189,42 @@ form label:nth-child( 3 ) {
   padding: 8px 32px;
   width: 115px;
 }
+
+.save-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.error {
+  float: right;
+  left: -20px;
+  position: relative;
+  top: -27px;
+  width: fit-content;
+}
+
+.error-total {
+  float: right;
+  left: 175px;
+  position: relative;
+  top: 11px;
+  width: fit-content;
+}
+
+.error-icon {
+  color: red;
+  font-size: 20px;
+}
+
+.check-icon {
+  color: rgba(3, 107, 82, 1);
+  font-size: 20px;
+}
+
+.total-points {
+  float: right;
+  left: -26px;
+  margin-top: 11px;
+  position: relative;
+  width: 175px;
+}

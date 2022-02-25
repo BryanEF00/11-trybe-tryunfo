@@ -39,9 +39,15 @@
 .card-name {
   background-color: rgb(2, 48, 49);
   border-radius: 10px 10px 0 0;
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 28px;
+  font-weight: 700;
   height: 40px;
   left: 15px;
+  padding: 7px;
   position: absolute;
+  text-align: center;
   top: 20px;
   width: 317px;
 }
@@ -59,12 +65,13 @@
 .card-description {
   color: white;
   font-family: Epilogue , sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 300;
   height: 50px;
   left: 15px;
   line-height: 13px;
+  padding: 7px;
   position: absolute;
   top: 298px;
   width: 317px;
@@ -118,7 +125,7 @@
   height: 30px;
   left: 250px;
   line-height: 24px;
-  padding: 7px 11px 2px 14px;
+  padding: 7px 14px 2px;
   position: absolute;
   top: 15px;
   width: 48px;

@@ -1,15 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { AiOutlineLink } from 'react-icons/ai';
+import { AiOutlineLink, AiFillCheckCircle } from 'react-icons/ai';
+import { MdError } from 'react-icons/md';
 
 import './Form.css';
 
 class Form extends Component {
+  emptyField = (input) => (!!input);
+
+  validAttr = (input) => {
+    const max = 90;
+    return input >= 0 && input < max;
+  };
+
+  validSum = (input) => {
+    const total = 210;
+
+    return input <= total;
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo,
       isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
+
+    const totalPoints = 210;
+
+    const sum = totalPoints - (
+      parseInt(cardAttr1, 10) + parseInt(cardAttr2, 10) + parseInt(cardAttr3, 10));
 
     return (
       <>
@@ -30,6 +49,12 @@ class Form extends Component {
             />
           </label>
 
+          <span className="error">
+            {this.emptyField(cardName)
+              ? <AiFillCheckCircle className="check-icon" />
+              : <MdError className="error-icon" />}
+          </span>
+
           <label htmlFor="description">
             Descrição
             <br />
@@ -43,6 +68,12 @@ class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
+
+          <span className="error">
+            {this.emptyField(cardDescription)
+              ? <AiFillCheckCircle className="check-icon" />
+              : <MdError className="error-icon" />}
+          </span>
 
           <label
             htmlFor="attr-1"
@@ -59,6 +90,12 @@ class Form extends Component {
             />
           </label>
 
+          <span className="error">
+            {this.validAttr(cardAttr1)
+              ? <AiFillCheckCircle className="check-icon" />
+              : <MdError className="error-icon" />}
+          </span>
+
           <label
             htmlFor="attr-2"
             className="attr-container"
@@ -74,6 +111,13 @@ class Form extends Component {
             />
           </label>
 
+          <span className="error">
+            {this.validAttr(cardAttr2)
+              ? <AiFillCheckCircle className="check-icon" />
+              : <MdError className="error-icon" />}
+
+          </span>
+
           <label
             htmlFor="attr-3"
             className="attr-container"
@@ -88,6 +132,23 @@ class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
+
+          <span className="error">
+            {this.validAttr(cardAttr3)
+              ? <AiFillCheckCircle className="check-icon" />
+              : <MdError className="error-icon" />}
+
+          </span>
+
+          <div className="total-points">
+            {`Pontos restantes = ${sum}`}
+          </div>
+
+          <span className="error-total">
+            {this.validSum(sum)
+              ? <AiFillCheckCircle className="check-icon" />
+              : <MdError className="error-icon" />}
+          </span>
 
           <label
             htmlFor="image"
@@ -105,8 +166,13 @@ class Form extends Component {
               value={ cardImage }
               onChange={ onInputChange }
             />
-
           </label>
+
+          <span className="error">
+            {this.emptyField(cardImage)
+              ? <AiFillCheckCircle className="check-icon" />
+              : <MdError className="error-icon" />}
+          </span>
 
           <label
             htmlFor="rarity"
@@ -128,6 +194,13 @@ class Form extends Component {
               <option value="muito raro">muito raro</option>
             </select>
           </label>
+
+          <span className="error">
+            {this.emptyField(cardRare)
+              ? <AiFillCheckCircle className="check-icon" />
+              : <MdError className="error-icon" />}
+
+          </span>
 
           <label
             htmlFor="checkbox"
