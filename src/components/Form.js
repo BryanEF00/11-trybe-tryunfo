@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { AiOutlineLink } from 'react-icons/ai';
+
 import './Form.css';
 
 class Form extends Component {
@@ -21,6 +23,8 @@ class Form extends Component {
               type="text"
               name="cardName"
               id="cardName"
+              className="card-name-input"
+              autoComplete="off"
               value={ cardName }
               onChange={ onInputChange }
             />
@@ -33,13 +37,18 @@ class Form extends Component {
               data-testid="description-input"
               name="cardDescription"
               id="description"
+              className="card-description-input"
+              rows="5"
               value={ cardDescription }
               onChange={ onInputChange }
             />
           </label>
 
-          <label htmlFor="attr-1">
-            Ataque
+          <label
+            htmlFor="attr-1"
+            className="attr-container"
+          >
+            <span>Ataque</span>
             <input
               data-testid="attr1-input"
               type="number"
@@ -50,8 +59,11 @@ class Form extends Component {
             />
           </label>
 
-          <label htmlFor="attr-2">
-            Defesa
+          <label
+            htmlFor="attr-2"
+            className="attr-container"
+          >
+            <span>Defesa</span>
             <input
               data-testid="attr2-input"
               type="number"
@@ -62,8 +74,11 @@ class Form extends Component {
             />
           </label>
 
-          <label htmlFor="attr-3">
-            Total
+          <label
+            htmlFor="attr-3"
+            className="attr-container"
+          >
+            <span>Total</span>
             <input
               data-testid="attr3-input"
               type="number"
@@ -74,8 +89,14 @@ class Form extends Component {
             />
           </label>
 
-          <label htmlFor="image">
-            Imagem
+          <label
+            htmlFor="image"
+            className="card-image-container"
+          >
+            <span>
+              Imagem
+            </span>
+            <AiOutlineLink className="icon-image" />
             <input
               data-testid="image-input"
               type="text"
@@ -84,10 +105,12 @@ class Form extends Component {
               value={ cardImage }
               onChange={ onInputChange }
             />
+
           </label>
 
           <label htmlFor="rarity">
             Raridade
+            <br />
             <select
               data-testid="rare-input"
               name="cardRare"

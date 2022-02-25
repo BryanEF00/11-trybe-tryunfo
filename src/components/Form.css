@@ -21,5 +21,110 @@ form {
 }
 
 form label {
+  color: rgb(61, 73, 92);
   display: block;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+form label:nth-child( 2 ) {
+  margin-top: 20px;
+}
+
+form label:nth-child( 3 ) {
+  margin-top: 42px;
+}
+
+.card-name-input {
+  align-items: center;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid rgb(61, 73, 92);
+  color: rgb(68, 73, 85);
+  display: flex;
+  flex-direction: row;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  height: 37px;
+  margin-top: 10px;
+  padding: 8px;
+  width: 355px;
+}
+
+.card-description-input {
+  align-items: center;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid rgb(61, 73, 92);
+  color: rgb(68, 73, 85);
+  display: flex;
+  flex-direction: row;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 5px;
+  padding: 8px;
+  resize: vertical;
+  width: 355px;
+}
+
+.attr-container {
+  align-items: center;
+  display: flex;
+  justify-items: center;
+  margin-top: 10px;
+  width: 355px;
+}
+
+.attr-container span {
+  display: block;
+  margin-right: 22px;
+  width: 55px;
+}
+
+.attr-container input {
+  background-color: white;
+  border: 1px solid rgb(41, 49, 61);
+  border-radius: 2px;
+  box-sizing: border-box;
+  height: 37px;
+  text-align: center;
+  width: 275px;
+}
+
+.card-image-container {
+  align-items: center;
+  display: flex;
+  justify-items: center;
+  margin-top: 42px;
+  width: 355px;
+}
+
+.card-image-container span {
+  display: block;
+  margin-right: 22px;
+  width: 55px;
+}
+
+.card-image-container input {
+  background-color: white;
+  border: 1px solid rgb(41, 49, 61);
+  border-radius: 0 2px 2px 0;
+  box-sizing: border-box;
+  height: 37px;
+  padding: 8px;
+  width: 229px;
+}
+
+.icon-image {
+  background-color: rgba(2, 48, 49, 1);
+  border-radius: 2px 0 0 2px;
+  color: white;
+  height: 37px;
+  padding: 4.5px;
+  width: 46px;
 }
