@@ -108,9 +108,14 @@ class Form extends Component {
 
           </label>
 
-          <label htmlFor="rarity">
-            Raridade
-            <br />
+          <label
+            htmlFor="rarity"
+            className="card-rare-input"
+          >
+            <span>
+              Raridade
+              <i className="arrow-down" />
+            </span>
             <select
               data-testid="rare-input"
               name="cardRare"
@@ -124,7 +129,10 @@ class Form extends Component {
             </select>
           </label>
 
-          <label htmlFor="checkbox">
+          <label
+            htmlFor="checkbox"
+            className="card-trunfo-input"
+          >
             <input
               data-testid="trunfo-input"
               type="checkbox"
@@ -137,6 +145,7 @@ class Form extends Component {
           <button
             data-testid="save-button"
             type="submit"
+            className="save-btn"
             disabled={ isSaveButtonDisabled }
             onClick={ onSaveButtonClick }
           >
