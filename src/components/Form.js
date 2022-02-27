@@ -11,13 +11,13 @@ class Form extends Component {
 
   validAttr = (input) => {
     const max = 90;
-    return input >= 0 && input < max;
+    return input >= 0 && input <= max;
   };
 
   validSum = (input) => {
     const total = 210;
 
-    return input <= total;
+    return input <= total && input >= 0;
   };
 
   render() {
