@@ -228,3 +228,9 @@ form label:nth-child( 3 ) {
   position: relative;
   width: 175px;
 }
+
+.has-trunfo {
+  margin-top: 25px;
+  text-align: center;
+  width: 355px;
+}

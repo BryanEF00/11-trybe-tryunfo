@@ -23,12 +23,28 @@ class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo,
-      isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
+      isSaveButtonDisabled, onInputChange, onSaveButtonClick,
+      hasTrunfo } = this.props;
 
     const totalPoints = 210;
 
     const sum = totalPoints - (
       parseInt(cardAttr1, 10) + parseInt(cardAttr2, 10) + parseInt(cardAttr3, 10));
+
+    const checkbox = (
+      <label
+        htmlFor="checkbox"
+        className="card-trunfo-input"
+      >
+        <input
+          data-testid="trunfo-input"
+          type="checkbox"
+          name="cardTrunfo"
+          checked={ cardTrunfo }
+          onChange={ onInputChange }
+        />
+        Super Trunfo
+      </label>);
 
     return (
       <>
@@ -48,13 +64,11 @@ class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
-
           <span className="error">
             {this.emptyField(cardName)
               ? <AiFillCheckCircle className="check-icon" />
               : <MdError className="error-icon" />}
           </span>
-
           <label htmlFor="description">
             Descrição
             <br />
@@ -68,13 +82,11 @@ class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
-
           <span className="error">
             {this.emptyField(cardDescription)
               ? <AiFillCheckCircle className="check-icon" />
               : <MdError className="error-icon" />}
           </span>
-
           <label
             htmlFor="attr-1"
             className="attr-container"
@@ -89,13 +101,11 @@ class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
-
           <span className="error">
             {this.validAttr(cardAttr1)
               ? <AiFillCheckCircle className="check-icon" />
               : <MdError className="error-icon" />}
           </span>
-
           <label
             htmlFor="attr-2"
             className="attr-container"
@@ -110,14 +120,11 @@ class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
-
           <span className="error">
             {this.validAttr(cardAttr2)
               ? <AiFillCheckCircle className="check-icon" />
               : <MdError className="error-icon" />}
-
           </span>
-
           <label
             htmlFor="attr-3"
             className="attr-container"
@@ -132,24 +139,20 @@ class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
-
           <span className="error">
             {this.validAttr(cardAttr3)
               ? <AiFillCheckCircle className="check-icon" />
               : <MdError className="error-icon" />}
 
           </span>
-
           <div className="total-points">
             {`Pontos restantes = ${sum}`}
           </div>
-
           <span className="error-total">
             {this.validSum(sum)
               ? <AiFillCheckCircle className="check-icon" />
               : <MdError className="error-icon" />}
           </span>
-
           <label
             htmlFor="image"
             className="card-image-container"
@@ -167,13 +170,11 @@ class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
-
           <span className="error">
             {this.emptyField(cardImage)
               ? <AiFillCheckCircle className="check-icon" />
               : <MdError className="error-icon" />}
           </span>
-
           <label
             htmlFor="rarity"
             className="card-rare-input"
@@ -194,27 +195,14 @@ class Form extends Component {
               <option value="muito raro">muito raro</option>
             </select>
           </label>
-
           <span className="error">
             {this.emptyField(cardRare)
               ? <AiFillCheckCircle className="check-icon" />
               : <MdError className="error-icon" />}
-
           </span>
-
-          <label
-            htmlFor="checkbox"
-            className="card-trunfo-input"
-          >
-            <input
-              data-testid="trunfo-input"
-              type="checkbox"
-              name="cardTrunfo"
-              checked={ cardTrunfo }
-              onChange={ onInputChange }
-            />
-            Super Trunfo
-          </label>
+          {hasTrunfo
+            ? <div className="has-trunfo">Você já tem um Super Trunfo em seu baralho</div>
+            : checkbox}
           <button
             data-testid="save-button"
             type="submit"
@@ -242,6 +230,7 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
 };
 
 export default Form;
