@@ -18,19 +18,7 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-      cardsDeck: [{
-        cardName: 'a',
-        cardDescription: 'a',
-        cardImage: 'a',
-        cardAttr1: '0',
-        cardAttr2: '0',
-        cardAttr3: '0',
-        cardRare: 'normal',
-        cardTrunfo: true,
-        isSaveButtonDisabled: false,
-        cardsDeck: [],
-        hasTrunfo: false,
-      }],
+      cardsDeck: [],
       hasTrunfo: false,
     };
   }
@@ -81,7 +69,7 @@ class App extends React.Component {
       cardsDeck: [...previousState.cardsDeck, newDeck],
     }));
 
-    const trunfoValidation = cardsDeck.some((value) => value.cardTrunfo);
+    const trunfoValidation = cardsDeck.some((value) => !value.cardTrunfo);
 
     this.setState({
       cardName: '',
