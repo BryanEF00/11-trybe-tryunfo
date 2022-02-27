@@ -18,6 +18,7 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      cardsDeck: [],
     };
   }
 
@@ -56,7 +57,26 @@ class App extends React.Component {
     this.setState({ [name]: value }, this.formsValidation);
   }
 
-  onSaveButtonClick = () => {};
+  onSaveButtonClick = (event) => {
+    const newDeck = this.state;
+
+    event.preventDefault();
+
+    this.setState((previousState) => ({
+      cardsDeck: [...previousState.cardsDeck, newDeck],
+    }));
+
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true });
+  };
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
