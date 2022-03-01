@@ -87,7 +87,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo, isSaveButtonDisabled,
-      hasTrunfo } = this.state;
+      hasTrunfo, cardsDeck } = this.state;
 
     return (
       <>
@@ -118,6 +118,21 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
           />
+        </div>
+        <div className="deck-container">
+          {
+            cardsDeck.map((card) => (<Card
+              cardName={ card.cardName }
+              cardDescription={ card.cardDescription }
+              cardImage={ card.cardImage }
+              cardAttr1={ card.cardAttr1 }
+              cardAttr2={ card.cardAttr2 }
+              cardAttr3={ card.cardAttr3 }
+              cardRare={ card.cardRare }
+              cardTrunfo={ card.cardTrunfo }
+              key={ card.cardName }
+            />))
+          }
         </div>
       </>
     );
