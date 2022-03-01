@@ -58,18 +58,21 @@ class App extends React.Component {
     this.setState({ [name]: value }, this.formsValidation);
   }
 
+  verifyTrunfo = () => {
+    const { cardsDeck } = this.state;
+    this.setState({
+      hasTrunfo: cardsDeck.some((card) => card.cardTrunfo),
+    });
+  }
+
   onSaveButtonClick = (event) => {
     const newDeck = this.state;
-
-    const { cardsDeck } = this.state;
 
     event.preventDefault();
 
     this.setState((previousState) => ({
       cardsDeck: [...previousState.cardsDeck, newDeck],
-    }));
-
-    const trunfoValidation = cardsDeck.some((value) => !value.cardTrunfo);
+    }), () => this.verifyTrunfo());
 
     this.setState({
       cardName: '',
@@ -80,7 +83,6 @@ class App extends React.Component {
       cardAttr3: '0',
       cardRare: 'normal',
       cardTrunfo: false,
-      hasTrunfo: trunfoValidation,
       isSaveButtonDisabled: true });
   };
 
