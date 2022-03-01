@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Form from './components/Form';
 
 import './App.css';
@@ -86,6 +87,14 @@ class App extends React.Component {
       isSaveButtonDisabled: true });
   };
 
+  removeCard = (cardName) => {
+    const { cardsDeck } = this.state;
+
+    this.setState({
+      cardsDeck: cardsDeck.filter((card) => card.cardName !== cardName),
+    }, () => this.verifyTrunfo());
+  }
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo, isSaveButtonDisabled,
@@ -123,17 +132,27 @@ class App extends React.Component {
         </div>
         <div className="deck-container">
           {
-            cardsDeck.map((card) => (<Card
-              cardName={ card.cardName }
-              cardDescription={ card.cardDescription }
-              cardImage={ card.cardImage }
-              cardAttr1={ card.cardAttr1 }
-              cardAttr2={ card.cardAttr2 }
-              cardAttr3={ card.cardAttr3 }
-              cardRare={ card.cardRare }
-              cardTrunfo={ card.cardTrunfo }
-              key={ card.cardName }
-            />))
+            cardsDeck.map((card) => (
+              <div key={ card.cardName }>
+                <Card
+                  cardName={ card.cardName }
+                  cardDescription={ card.cardDescription }
+                  cardImage={ card.cardImage }
+                  cardAttr1={ card.cardAttr1 }
+                  cardAttr2={ card.cardAttr2 }
+                  cardAttr3={ card.cardAttr3 }
+                  cardRare={ card.cardRare }
+                  cardTrunfo={ card.cardTrunfo }
+                />
+                <button
+                  data-testid="delete-button"
+                  type="button"
+                  onClick={ () => this.removeCard(card.cardName) }
+                >
+                  Excluir
+                </button>
+              </div>
+            ))
           }
         </div>
       </>
