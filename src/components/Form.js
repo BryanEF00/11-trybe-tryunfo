@@ -40,6 +40,7 @@ class Form extends Component {
           data-testid="trunfo-input"
           type="checkbox"
           name="cardTrunfo"
+          id="checkbox"
           checked={ cardTrunfo }
           onChange={ onInputChange }
         />
@@ -190,6 +191,7 @@ class Form extends Component {
               value={ cardRare }
               onChange={ onInputChange }
             >
+              <option hidden value="">Raridade</option>
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>

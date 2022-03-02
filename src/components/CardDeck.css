@@ -2,27 +2,12 @@
   box-sizing: border-box;
 }
 
-.card-title {
-  color: white;
-  font-family: Epilogue , sans-serif;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  height: 36px;
-  line-height: 29px;
-  position: absolute;
-  text-align: center;
-  top: 40px;
-  width: 100%;
-}
-
-.card {
+.card-deck {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
   height: 549px;
-  position: absolute;
-  top: 140px;
+  position: relative;
   width: 368px;
 }
 
@@ -171,3 +156,4 @@
   top: 135px;
   width: fit-content;
 }
+

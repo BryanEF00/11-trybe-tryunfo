@@ -1,9 +1,10 @@
 import React from 'react';
 
 import Form from './components/Form';
+import Card from './components/Card';
+import CardDeck from './components/CardDeck';
 
 import './App.css';
-import Card from './components/Card';
 
 class App extends React.Component {
   constructor() {
@@ -131,29 +132,41 @@ class App extends React.Component {
           />
         </div>
         <div className="deck-container">
-          {
-            cardsDeck.map((card) => (
-              <div key={ card.cardName }>
-                <Card
-                  cardName={ card.cardName }
-                  cardDescription={ card.cardDescription }
-                  cardImage={ card.cardImage }
-                  cardAttr1={ card.cardAttr1 }
-                  cardAttr2={ card.cardAttr2 }
-                  cardAttr3={ card.cardAttr3 }
-                  cardRare={ card.cardRare }
-                  cardTrunfo={ card.cardTrunfo }
-                />
-                <button
-                  data-testid="delete-button"
-                  type="button"
-                  onClick={ () => this.removeCard(card.cardName) }
-                >
-                  Excluir
-                </button>
-              </div>
-            ))
-          }
+          <h1>Todas as cartas</h1>
+          <h2>Filtros de busca</h2>
+          <div className="filter-container">
+            <input
+              data-testid="name-filter"
+              className="filter-name"
+              type="text"
+              placeholder="Nome da carta"
+            />
+          </div>
+          <div className="card-deck-container">
+            {
+              cardsDeck.map((card) => (
+                <div className="card-items" key={ card.cardName }>
+                  <CardDeck
+                    cardName={ card.cardName }
+                    cardDescription={ card.cardDescription }
+                    cardImage={ card.cardImage }
+                    cardAttr1={ card.cardAttr1 }
+                    cardAttr2={ card.cardAttr2 }
+                    cardAttr3={ card.cardAttr3 }
+                    cardRare={ card.cardRare }
+                    cardTrunfo={ card.cardTrunfo }
+                  />
+                  <button
+                    data-testid="delete-button"
+                    type="button"
+                    onClick={ () => this.removeCard(card.cardName) }
+                  >
+                    Excluir
+                  </button>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </>
     );

@@ -5,18 +5,16 @@
   font-style: normal;
   font-weight: 700;
   height: 36px;
-  left: 131px;
   line-height: 29px;
   position: absolute;
-  top: 80px;
+  top: 40px;
   width: 355px;
 }
 
 form {
   height: 734px;
-  left: 129px;
   position: absolute;
-  top: 170px;
+  top: 130px;
   width: 398px;
 }
 
@@ -151,6 +149,7 @@ form label:nth-child( 3 ) {
   height: 40px;
   margin-top: 10px;
   padding: 8px;
+  padding-left: 15px;
   width: 355px;
 }
 
