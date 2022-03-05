@@ -24,6 +24,7 @@ class App extends React.Component {
       hasTrunfo: false,
       filterName: '',
       filterRare: '',
+      filterTrunfo: false,
     };
   }
 
@@ -101,7 +102,58 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo, isSaveButtonDisabled,
-      hasTrunfo, cardsDeck, filterName, filterRare } = this.state;
+      hasTrunfo, cardsDeck, filterName, filterRare, filterTrunfo } = this.state;
+
+    const filter = cardsDeck.filter((card) => card.cardName.includes(filterName))
+      .filter((card) => (filterRare
+        ? card.cardRare === filterRare
+        : card.cardRare))
+      .map((card) => (
+        <div className="card-items" key={ card.cardName }>
+
+          <CardDeck
+            cardName={ card.cardName }
+            cardDescription={ card.cardDescription }
+            cardImage={ card.cardImage }
+            cardAttr1={ card.cardAttr1 }
+            cardAttr2={ card.cardAttr2 }
+            cardAttr3={ card.cardAttr3 }
+            cardRare={ card.cardRare }
+            cardTrunfo={ card.cardTrunfo }
+          />
+
+          <button
+            data-testid="delete-button"
+            type="button"
+            onClick={ () => this.removeCard(card.cardName) }
+          >
+            Excluir
+          </button>
+        </div>
+      ));
+
+    const trunfo = cardsDeck.filter((card) => card.cardTrunfo)
+      .map((card) => (
+        <div className="card-items" key={ card.cardName }>
+          <CardDeck
+            cardName={ card.cardName }
+            cardDescription={ card.cardDescription }
+            cardImage={ card.cardImage }
+            cardAttr1={ card.cardAttr1 }
+            cardAttr2={ card.cardAttr2 }
+            cardAttr3={ card.cardAttr3 }
+            cardRare={ card.cardRare }
+            cardTrunfo={ card.cardTrunfo }
+          />
+          <button
+            data-testid="delete-button"
+            type="button"
+            onClick={ () => this.removeCard(card.cardName) }
+          >
+            Excluir
+          </button>
+        </div>
+      ));
 
     return (
       <>
@@ -162,34 +214,26 @@ class App extends React.Component {
               <option value="muito raro">muito raro</option>
             </select>
 
+            <label
+              htmlFor="filter-trunfo"
+              className="filter-trunfo"
+            >
+              <input
+                data-testid="trunfo-filter"
+                type="checkbox"
+                name="filterTrunfo"
+                id="filter-trunfo"
+                value={ filterTrunfo }
+                onChange={ this.onInputChange }
+              />
+              Super Trunfo
+            </label>
           </div>
           <div className="card-deck-container">
             {
-              cardsDeck.filter((card) => card.cardName.includes(filterName))
-                .filter((card) => (filterRare
-                  ? card.cardRare === filterRare
-                  : card.cardRare))
-                .map((card) => (
-                  <div className="card-items" key={ card.cardName }>
-                    <CardDeck
-                      cardName={ card.cardName }
-                      cardDescription={ card.cardDescription }
-                      cardImage={ card.cardImage }
-                      cardAttr1={ card.cardAttr1 }
-                      cardAttr2={ card.cardAttr2 }
-                      cardAttr3={ card.cardAttr3 }
-                      cardRare={ card.cardRare }
-                      cardTrunfo={ card.cardTrunfo }
-                    />
-                    <button
-                      data-testid="delete-button"
-                      type="button"
-                      onClick={ () => this.removeCard(card.cardName) }
-                    >
-                      Excluir
-                    </button>
-                  </div>
-                ))
+              filterTrunfo
+                ? trunfo
+                : filter
             }
           </div>
         </div>

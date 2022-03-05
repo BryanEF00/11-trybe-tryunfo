@@ -66,6 +66,7 @@
 }
 
 .filter-container {
+  align-content: center;
   display: flex;
   height: 45px;
   justify-content: space-around;
@@ -113,6 +114,24 @@
   pointer-events: none;
   position: relative;
   transform: rotate(45deg);
+}
+
+.filter-trunfo {
+  align-self: baseline;
+  color: rgb(61, 73, 92);
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  height: fit-content;
+  line-height: 24px;
+  margin-left: 15px;
+  margin-top: 27px;
+  width: fit-content;
+}
+
+.filter-trunfo input {
+  margin-right: 8px;
 }
 
 .card-deck-container {
