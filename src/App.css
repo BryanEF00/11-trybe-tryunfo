@@ -87,6 +87,34 @@
   width: 305px;
 }
 
+.filter-rare {
+  appearance: none;
+  background-color: white;
+  border: 1px solid rgb(61, 73, 92);
+  border-radius: 6px;
+  color: rgb(68, 73, 85);
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  height: 45px;
+  margin-top: 15px;
+  padding: 12px 16px;
+  width: 305px;
+}
+
+.filter-arrow-down {
+  border: solid rgba(61, 73, 92, 1);
+  border-width: 0 2px 2px 0;
+  bottom: -32px;
+  display: inline-block;
+  height: 0;
+  left: 285px;
+  padding: 3.5px;
+  pointer-events: none;
+  position: relative;
+  transform: rotate(45deg);
+}
+
 .card-deck-container {
   display: flex;
   flex-wrap: wrap;

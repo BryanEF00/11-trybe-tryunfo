@@ -23,6 +23,7 @@ class App extends React.Component {
       cardsDeck: [],
       hasTrunfo: false,
       filterName: '',
+      filterRare: '',
     };
   }
 
@@ -100,7 +101,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo, isSaveButtonDisabled,
-      hasTrunfo, cardsDeck, filterName } = this.state;
+      hasTrunfo, cardsDeck, filterName, filterRare } = this.state;
 
     return (
       <>
@@ -145,10 +146,29 @@ class App extends React.Component {
               value={ filterName }
               onChange={ this.onInputChange }
             />
+
+            <i className="filter-arrow-down" />
+
+            <select
+              data-testid="rare-filter"
+              className="filter-rare"
+              name="filterRare"
+              value={ filterRare }
+              onChange={ this.onInputChange }
+            >
+              <option value="">todas</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
+            </select>
+
           </div>
           <div className="card-deck-container">
             {
               cardsDeck.filter((card) => card.cardName.includes(filterName))
+                .filter((card) => (filterRare
+                  ? card.cardRare === filterRare
+                  : card.cardRare))
                 .map((card) => (
                   <div className="card-items" key={ card.cardName }>
                     <CardDeck
